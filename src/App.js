@@ -1,11 +1,10 @@
 import React from 'react';
-import { LoginForm } from './components/login/LoginForm';
+import { AppRouter } from './routers/AppRouter';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Test</h1>
-      <LoginForm />
+    <div>
+      <AppRouter />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Item = () => {
+export const UserScreen = () => {
     return (
         <div>
-            
+            User
         </div>
     )
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useForm } from '../../hooks/useForm';
 
-export const StateForm = () => {
+export const StateForm = ({handleAddState}) => {
 
     const [data, handleInputChange ] = useForm({code: '', name: ''});
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(data)
+        handleAddState();
     }
 
     return(

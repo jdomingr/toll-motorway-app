@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
+import { stateTypes } from '../../types/stateTypes'
 import { StateForm } from './StateForm'
 import { StateList } from './StateList'
+import { stateReducer } from './stateReducer'
 
 export const StateScreen = () => {
 
     const [showForm, setShowForm] = useState(false)
+    const initialStates = [
+        {id: 1, name: 'Primero'},
+        {id: 2, name: 'Segundo'},
+        {id: 3, name: 'Tercero'},
+        {id: 4, name: 'Cuarto'}
+    ]
+    const [state, dispatch] = useReducer(stateReducer, initialStates)
 
     const handleSetShowForm = () => {
         setShowForm(!showForm);
+    }
+
+    const handleAddState = () => {
+        const newState = {id: `${new Date().getTime()}`, name: 'Quinto'}
+        dispatch({
+            type: stateTypes.add,
+            payload: newState
+        });
     }
     return (
         <div className="container mt-5">
@@ -34,7 +51,7 @@ export const StateScreen = () => {
                 </div>
             </div>
             <div className="mt-5">
-                { (showForm) ? <StateForm /> : <StateList />}
+                { (showForm) ? <StateForm handleAddState = { handleAddState }/> : <StateList states = {state}/>}
             </div>
             
             

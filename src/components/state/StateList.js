@@ -10,7 +10,6 @@ export const StateList = () => {
     ]
     return(
         <div>
-            <h1> Test List</h1>
             <ul className="list-group list-group-flush">
                 { states.map( state => (
                     <StateItem key={state.id} {...state}/>

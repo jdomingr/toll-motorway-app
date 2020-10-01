@@ -12,6 +12,9 @@ export const StateItem = ({ id, name }) => {
                 <button className="btn btn-warning m-1" title="Editar"> 
                     <span><i className="fa fa-edit"></i></span>
                 </button>
+                <button className="btn btn-default m-1" title="Ver más"> 
+                    <span><i className="fa fa-eye"></i></span>
+                </button>
             </div>
            
         </li>

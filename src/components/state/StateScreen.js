@@ -1,26 +1,37 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer, useState, useEffect } from 'react'
+import { getStatesApi } from '../../services/api/stateApi'
 import { stateTypes } from '../../types/stateTypes'
+import { SpinnerLoading } from '../ui/SpinnerLoading'
 import { StateForm } from './StateForm'
 import { StateList } from './StateList'
 import { stateReducer } from './stateReducer'
 
 export const StateScreen = () => {
 
-    const [showForm, setShowForm] = useState(false)
-    const initialStates = [
-        {id: 1, name: 'Primero'},
-        {id: 2, name: 'Segundo'},
-        {id: 3, name: 'Tercero'},
-        {id: 4, name: 'Cuarto'}
-    ]
-    const [state, dispatch] = useReducer(stateReducer, initialStates)
+    const [showForm, setShowForm] = useState(false);
+   
+    //Reducer
+    const [state, dispatch] = useReducer(stateReducer, []);
 
     const handleSetShowForm = () => {
         setShowForm(!showForm);
     }
 
-    const handleAddState = () => {
-        const newState = {id: `${new Date().getTime()}`, name: 'Quinto'}
+    useEffect(() => {
+        const getStates = async () => {
+           const response = await getStatesApi();
+           dispatch({
+               type: stateTypes.load,
+               payload: response.data
+           });
+           
+        } 
+        getStates();
+    }, [])
+
+    
+    const handleAddState = (newState) => {
+        console.log(newState);
         dispatch({
             type: stateTypes.add,
             payload: newState
@@ -45,12 +56,11 @@ export const StateScreen = () => {
                             <i className="fa fa-list mr-2"></i> 
                             List
                         </button>
-                        }
-                    
-                    
+                        }     
                 </div>
             </div>
             <div className="mt-5">
+            <SpinnerLoading />
                 { (showForm) ? <StateForm handleAddState = { handleAddState }/> : <StateList states = {state}/>}
             </div>
             

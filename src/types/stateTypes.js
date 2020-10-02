@@ -3,4 +3,5 @@ export const stateTypes = {
     update: '[state] update',
     search: '[state] search',
     remove: '[state] remove',
+    load: '[state] load',
 }

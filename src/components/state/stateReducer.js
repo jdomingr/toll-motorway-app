@@ -1,7 +1,7 @@
 import { stateTypes } from "../../types/stateTypes";
 
 export const stateReducer = ( state = {}, action) => {
-
+    console.log(state)
     switch(action.type){
 
         case stateTypes.add:
@@ -12,6 +12,8 @@ export const stateReducer = ( state = {}, action) => {
             return state.find(item => item.id === action.payload);
         case stateTypes.remove:
             return state.filter( item => item.id === action.payload);
+        case stateTypes.load:
+            return action.payload;
         default:
             return state;        
     }

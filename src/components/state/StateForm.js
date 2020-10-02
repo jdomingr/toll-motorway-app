@@ -8,7 +8,7 @@ export const StateForm = ({handleAddState}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddState();
+        handleAddState(data);
     }
 
     return(
@@ -19,12 +19,16 @@ export const StateForm = ({handleAddState}) => {
                     <form className="m-3" onSubmit={ handleSubmit }>
                         <div className="form-group">
                             <input type="text" className="form-control" 
-                            placeholder = "Enter the code" value={ data.code }
+                            placeholder = "Enter the code"
+                            name = "code"
+                            value={ data.code }
                             onChange = { handleInputChange } />
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control" 
-                            placeholder = "Enter the State name" value={ data.name }
+                            placeholder = "Enter the State name"
+                            name = "name"
+                             value={ data.name }
                             onChange = { handleInputChange } />
                         </div>
 

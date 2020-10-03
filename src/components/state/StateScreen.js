@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from 'react'
-import { getStatesApi } from '../../services/api/stateApi'
+import { createStateApi, getStatesApi } from '../../services/api/stateApi'
 import { stateTypes } from '../../types/stateTypes'
 import { SpinnerLoading } from '../ui/SpinnerLoading'
 import { StateForm } from './StateForm'
@@ -10,19 +10,26 @@ export const StateScreen = () => {
 
     const [showForm, setShowForm] = useState(false);
    
+    const initialStateReducer = {loading: true, error: null, data:[]};
+
     //Reducer
-    const [state, dispatch] = useReducer(stateReducer, []);
+    const [state, dispatch] = useReducer(stateReducer, initialStateReducer);
 
     const handleSetShowForm = () => {
         setShowForm(!showForm);
     }
 
     useEffect(() => {
+      
         const getStates = async () => {
            const response = await getStatesApi();
+           console.log(response);
            dispatch({
                type: stateTypes.load,
-               payload: response.data
+               payload:{
+                   error: response.error,
+                   data: response.data,
+               }
            });
            
         } 
@@ -30,13 +37,18 @@ export const StateScreen = () => {
     }, [])
 
     
-    const handleAddState = (newState) => {
-        console.log(newState);
+    const handleAddState = async (newState) => {
+        const response = await createStateApi(newState);
+        console.log(response);
         dispatch({
             type: stateTypes.add,
-            payload: newState
+            payload: {
+                error: response.error,
+                data: response.data,
+            }
         });
     }
+
     return (
         <div className="container mt-5">
             <div className="row">
@@ -60,8 +72,16 @@ export const StateScreen = () => {
                 </div>
             </div>
             <div className="mt-5">
-            <SpinnerLoading />
-                { (showForm) ? <StateForm handleAddState = { handleAddState }/> : <StateList states = {state}/>}
+                {
+                    (state.loading) 
+
+                    ? <SpinnerLoading /> 
+                    
+                    : (showForm)
+
+                    ? <StateForm handleAddState = { handleAddState }/> 
+                    
+                    : <StateList states = {state.data} dispatch = {dispatch}/>}
             </div>
             
             

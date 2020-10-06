@@ -4,13 +4,13 @@ import { stateTypes } from '../../types/stateTypes'
 import { SpinnerLoading } from '../ui/SpinnerLoading'
 import { StateForm } from './StateForm'
 import { StateList } from './StateList'
-import { stateReducer } from './stateReducer'
+import { stateReducer } from '../../services/reducers/stateReducer'
 
 export const StateScreen = () => {
 
     const [showForm, setShowForm] = useState(false);
    
-    const initialStateReducer = {loading: true, error: null, data:[]};
+    const initialStateReducer = {loading: true, error: '', data:[]};
 
     //Reducer
     const [state, dispatch] = useReducer(stateReducer, initialStateReducer);
@@ -23,9 +23,8 @@ export const StateScreen = () => {
       
         const getStates = async () => {
            const response = await getStatesApi();
-           console.log(response);
            dispatch({
-               type: stateTypes.load,
+               type: stateTypes.fetch_data,
                payload:{
                    error: response.error,
                    data: response.data,
@@ -41,7 +40,7 @@ export const StateScreen = () => {
         const response = await createStateApi(newState);
         console.log(response);
         dispatch({
-            type: stateTypes.add,
+            type: stateTypes.fetch_data,
             payload: {
                 error: response.error,
                 data: response.data,

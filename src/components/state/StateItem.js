@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteStateApi } from '../../services/api/stateApi';
-import { stateTypes } from '../../types/stateTypes';
+
+
 export const StateItem = ({ id, name, dispatch }) => {
 
     const handleDeleteState = async(id) => {

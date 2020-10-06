@@ -1,7 +1,4 @@
 export const stateTypes = {
-    add: '[state] add',
-    update: '[state] update',
-    search: '[state] search',
-    remove: '[state] remove',
-    load: '[state] load',
+    fetch_data: '[state] fetch_data',
+    fetch_data_error: '[state] fetch_data_error',
 }

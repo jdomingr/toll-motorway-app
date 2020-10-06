@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react';
 import { useForm } from '../../hooks/useForm';
 
 export const LoginForm = () => {
 
     const [data, handleInputChange] = useForm({email: '', password: ''});
 
-    useEffect( () => {
-        console.log(data)
-    });
 
     const handleSubmit = ( e ) => {
         e.preventDefault();
         console.log("Submit")
+        console.log("asdasdasda")
     }
     return (
         <div className="container-md">
@@ -24,7 +22,7 @@ export const LoginForm = () => {
                     <h3 className="text-center text-info">Login</h3>
                     <div className="form-group">
                         <label htmlFor="email" 
-                            className="text-info">Email:</label>
+                            className="text-info">Email </label>
 
                         <input className="form-control" 
                             type="email" name="email"
@@ -33,7 +31,7 @@ export const LoginForm = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="password" 
-                            className="text-info">Password:</label>
+                            className="text-info">Password </label>
                         <input className="form-control" 
                             type="password" 
                             name="password"

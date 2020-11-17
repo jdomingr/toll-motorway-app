@@ -3,9 +3,9 @@ import { AppRouter } from './routers/AppRouter';
 
 function App() {
   return (
-    <div>
+    <main className="base__container-main">
       <AppRouter />
-    </div>
+    </main>
   );
 }
 

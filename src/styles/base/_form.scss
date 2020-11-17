@@ -1,0 +1,21 @@
+
+
+.list__container {
+    background-color: #ffffff;
+    display: flex;
+    width: 80%;
+
+}
+
+.btn__add {
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 1rem;
+    border: none;
+    background-color: $add-button;
+
+    &:hover {
+        background-color: $add-button-hover;
+    }
+}
+

@@ -17,33 +17,52 @@ export const Aside = () => {
             </h3>
             <nav>
                 <ul>
-                    <li> <FontAwesomeIcon icon={ faUsers } />
-                        <NavLink activeClassName="active" className="nav__li "to="/users" exact> Users</NavLink>
+                    <li> 
+                        
+                        <NavLink activeClassName="active" className="nav__li "to="/users" exact>
+                            <FontAwesomeIcon icon={ faUsers } className="icon mr-1"/>
+                             Users
+                        </NavLink>
+                        
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={ faFlag } />    
-                        <NavLink activeClassName="active" className="nav__li "to="/states" exact> States</NavLink>
+                        
+                        <NavLink activeClassName="active" className="nav__li "to="/states" exact>
+                            <FontAwesomeIcon icon={ faFlag } className="icon mr-1" />    
+                            States
+                         </NavLink>
                     </li>
 
                     <li>
-                        <FontAwesomeIcon icon={ faCity } />
-                        Cities
+                        <NavLink activeClassName="active" className="nav__li "to="/cities" exact>
+                            <FontAwesomeIcon icon={ faCity } className="icon mr-1" />
+                            Cities
+                        </NavLink>
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={ faArchway } />
-                        Toll Roads
+                        <NavLink activeClassName="active" className="nav__li" to="toll-roads" exact>
+                            <FontAwesomeIcon icon={ faArchway } className="icon mr-1" />
+                            Toll Roads
+                        </NavLink>
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={ faCashRegister } />
-                        Toll Booths
+                        <NavLink activeClassName="active" className="nav__li" to="toll-booths" exact>
+                            <FontAwesomeIcon icon={ faCashRegister } className="icon mr-1" />
+                            Toll Booths
+                        </NavLink>
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={ faCar } />
-                        Vehicles
+                        <NavLink activeClassName="active" className="nav__li" to="vehicles" exact>
+                            <FontAwesomeIcon icon={ faCar } className="icon mr-1" />
+                            Vehicles
+                        </NavLink>
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={ faMoneyCheck } />
-                        Pays
+                       
+                        <NavLink activeClassName="active" className="nav__li" to="pays" exact>
+                            <FontAwesomeIcon icon={ faMoneyCheck } className="icon mr-1" />
+                            Pays
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

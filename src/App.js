@@ -1,11 +1,14 @@
 import React from 'react';
+import { UserProvider } from './context/loginContext';
 import { AppRouter } from './routers/AppRouter';
 
 function App() {
   return (
-    <main className="base__container-main">
-      <AppRouter />
-    </main>
+    <div className="base__container-main">
+      <UserProvider>
+        <AppRouter />
+      </UserProvider>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +8,18 @@ import { faArchway} from '@fortawesome/free-solid-svg-icons';
 import { faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '../../context/loginContext';
 
 export const Aside = () => {
+
+    const [user, dispatch] = useContext(UserContext);
+
+    const {name, isLogged} = user;
+
     return (
         <aside className="dashboard__aside">
             <h3 className="aside__title">
-                Bienvenido Usuario
+                Bienvenido { name }
             </h3>
             <nav>
                 <ul>

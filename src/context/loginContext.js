@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
+import { getUserData, saveToken } from "../helpers/actionOnLocalStorage";
 import { loginReducer } from "./loginReducer";
 
 
@@ -10,10 +11,23 @@ export const UserProvider = ({ children }) => {
         isLogged: false,
         name: null,
         last_name: null,
-        role: null
+        email: null,
+        role: null,
+        token: null
     }
 
-    const [user, dispatch] = useReducer(loginReducer, initialState);
+    
+    const [user, dispatch] = useReducer(loginReducer, initialState, () => {
+        const userData = getUserData();
+        return (userData) ? userData : initialState; 
+
+    });
+
+    useEffect(() => {
+        saveToken(user);
+    },[user]);
+
+
     return (
 
         <UserContext.Provider value={ [user, dispatch] }>

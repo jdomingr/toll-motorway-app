@@ -112,9 +112,14 @@ ul {
 nav ul li {
     padding: 1rem;
     list-style-type: none;
+    align-content: center;;
 }
 
 .icon {
     color: white;
+}
+.icon-right {
+    float: right;
+    margin-right: .5rem;
 }
 

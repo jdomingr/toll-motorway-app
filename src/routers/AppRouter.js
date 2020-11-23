@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Login } from '../components/login/Login'
 import { DashboardScreen } from '../components/dashboard/DashboardScreen';
 import { PrivateRoutes } from './PrivateRoutes';
@@ -10,7 +10,6 @@ import { useContext } from 'react';
 export const AppRouter = () => {
 
     const [user] = useContext(UserContext);
-    console.log(user)
     return(
         <Router>
             <>

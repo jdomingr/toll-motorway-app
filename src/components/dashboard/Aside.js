@@ -9,12 +9,19 @@ import { faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../context/loginContext';
+import { types } from '../../types/types';
 
 export const Aside = () => {
 
     const [user, dispatch] = useContext(UserContext);
 
-    const {name, isLogged} = user;
+    const { name } = user;
+
+    const handleLogout = () => {
+        dispatch({
+            type: types.logout,
+        });
+    }
 
     return (
         <aside className="dashboard__aside">
@@ -25,11 +32,12 @@ export const Aside = () => {
                 <ul>
                     <li> 
                         
-                        <NavLink activeClassName="active" className="nav__li "to="/users" exact>
+                        <NavLink activeClassName="active" className="nav__li" to="/users">
                             <FontAwesomeIcon icon={ faUsers } className="icon mr-1"/>
                              Users
+                            
                         </NavLink>
-                        
+                      
                     </li>
                     <li>
                         
@@ -72,7 +80,7 @@ export const Aside = () => {
                     </li>
                 </ul>
             </nav>
-            <button className="aside__btn">
+            <button className="aside__btn" onClick = { handleLogout }>
                 Cerrar Sesión
             </button>
         </aside>

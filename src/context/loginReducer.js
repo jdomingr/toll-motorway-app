@@ -4,7 +4,9 @@ const initialState = {
     isLogged: false,
     name: null,
     last_name: null,
-    role: null
+    email: null,
+    role: null,
+    token: null
 }
 export const loginReducer = ( state = {}, action) => {
 

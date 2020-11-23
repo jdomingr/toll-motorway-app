@@ -1,6 +1,6 @@
 
 
-export const authApi = async () => {
+export const authApi = async (dataLogin) => {
 
     let url = 'http://localhost:3000/login'
     // let formBody = new FormData();
@@ -9,7 +9,7 @@ export const authApi = async () => {
     try {
         const response = await fetch(url, {
             method: 'POST',
-            body: 'email=juan@gmail.com&password=123456',
+            body: `email=${dataLogin.email}&password=${dataLogin.password}`,
             headers: {
                 'Access-Control-Allow-Origin' : '*', 
                 'Content-Type': 'application/x-www-form-urlencoded',

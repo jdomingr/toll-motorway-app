@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { useEffect, useReducer } from 'react';
+import { getUsersList } from '../../api/user';
+import { types } from '../../types/types';
+import { listReducer } from '../reducers/listReducer';
+
+const initialState = {
+    isLoading:  true,
+    list: [],
+}
 
 export const List = () => {
+
+    const [users, dispatch] = useReducer(listReducer, initialState);
+
+    const getUsers = async() => {
+        const { data } = await getUsersList(); 
+        if(data){
+            dispatch({
+                type: types.fetchDataList,
+                payload: [...data]
+                
+            });
+        }
+
+    }
+    
+    useEffect( () => {
+        getUsers();   
+    },[]);
+
+
     return (
         <div className="list__container">
-            <table>
+            { (users.isLoading) ? <h1>Loading...</h1> : 
+            (<table>
                 <thead>
                     <tr>
                         <th>
@@ -27,28 +56,37 @@ export const List = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            Juan
-                        </td>
-                        <td>
-                            Juan
-                        </td>
-                        <td>
-                            Juan
-                        </td>
-                        <td>
-                            Juan
-                        </td>
-                        <td>
-                            Juan
-                        </td>
-                        <td>
-                            Juan
-                        </td>
-                    </tr>
+                    
+                        {   users.list && 
+                            users.list.map( (user) => 
+                            <tr key={user._id}>
+                                <td>
+                                    {user.name}
+                                </td>
+                                <td>
+                                    {user.last_name}
+                                </td>
+                                <td>
+                                    {user.email}
+                                </td>
+                                <td>
+                                    {user.role}
+                                </td>
+                                <td>
+                                    {(user.status) ? 'Active' : 'Inactive'}
+                                </td>
+                                <td>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                
+                            )
+                        }
+                       
+                    
                 </tbody>
-            </table>
+            </table>)
+        }
         </div>
     )
 }

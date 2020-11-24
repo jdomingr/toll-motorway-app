@@ -6,5 +6,6 @@ export const types = {
     add: 'add',
     update: 'update',
     delete: 'delete',
-    search: 'search'
+    search: 'search',
+    fetchDataList: 'fetch data list',
 }

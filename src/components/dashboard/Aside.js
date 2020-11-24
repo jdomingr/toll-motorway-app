@@ -8,6 +8,7 @@ import { faArchway} from '@fortawesome/free-solid-svg-icons';
 import { faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../context/loginContext';
 import { types } from '../../types/types';
 
@@ -32,12 +33,18 @@ export const Aside = () => {
                 <ul>
                     <li> 
                         
-                        <NavLink activeClassName="active" className="nav__li" to="/users">
-                            <FontAwesomeIcon icon={ faUsers } className="icon mr-1"/>
-                             Users
+                        <NavLink activeClassName="active" className="nav__li" to="/home">
+                            <FontAwesomeIcon icon={ faHome } className="icon mr-1"/>
+                             Info
                             
                         </NavLink>
                       
+                    </li>
+                    <li> 
+                        <NavLink activeClassName="active" className="nav__li" to="/users">
+                            <FontAwesomeIcon icon={ faUsers } className="icon mr-1"/>
+                             Users
+                        </NavLink>
                     </li>
                     <li>
                         

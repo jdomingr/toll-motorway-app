@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { getUserData, saveToken } from "../helpers/actionOnLocalStorage";
 import { loginReducer } from "./loginReducer";
-
+import jwt from 'jsonwebtoken';
 
 export const UserContext = createContext(null);
 
@@ -16,10 +16,29 @@ export const UserProvider = ({ children }) => {
         token: null
     }
 
+    const isTokenExpired = ( token ) => {
+        const { exp } = jwt.decode(token); 
+        //exp converted to milliseconds - 3 minutes
+        const expirationTime = (exp * 1000) - 180000;
+        return Date.now() >= expirationTime;
+        
+    }
+
     
     const [user, dispatch] = useReducer(loginReducer, initialState, () => {
         const userData = getUserData();
-        return (userData) ? userData : initialState; 
+       
+
+        if( userData ) {
+
+            if(isTokenExpired(userData.token)){
+                return initialState;
+            }
+            return userData;
+
+        }
+
+        return initialState
 
     });
 

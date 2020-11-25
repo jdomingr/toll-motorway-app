@@ -1,22 +1,21 @@
 import React, { useEffect, useReducer } from 'react';
 import { getUsersList } from '../../api/user';
 import { types } from '../../types/types';
-import { listReducer } from '../reducers/listReducer';
+import { userReducer } from '../../reducers/userReducer';
 
 const initialState = {
-    isLoading:  true,
     list: [],
 }
 
 export const List = () => {
 
-    const [users, dispatch] = useReducer(listReducer, initialState);
+    const [users, dispatch] = useReducer(userReducer, initialState);
 
     const getUsers = async() => {
         const { data } = await getUsersList(); 
         if(data){
             dispatch({
-                type: types.fetchDataList,
+                type: types.getList,
                 payload: [...data]
                 
             });

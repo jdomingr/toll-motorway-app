@@ -7,5 +7,5 @@ export const types = {
     update: 'update',
     delete: 'delete',
     search: 'search',
-    fetchDataList: 'fetch data list',
+    getList: 'Get data list',
 }

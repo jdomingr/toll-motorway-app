@@ -8,14 +8,40 @@
 }
 
 .btn__add {
-    color: #ffffff;
     border-radius: 4px;
-    padding: 1rem;
+    background-color:#4CAF50;
+    color: white;
     border: none;
-    background-color: $add-button;
-
+    margin-bottom: 1rem;
+    padding: 1rem;
     &:hover {
-        background-color: $add-button-hover;
+        background-color: #1e9b22;
     }
 }
 
+.form__container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    
+}
+
+.form__add {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.form__group{
+    width: 100%;
+}
+
+.form__input {
+    width: 100%;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    font-weight: bolder;
+    color:  #8898aa;
+    box-shadow: 0px 1px 3px #ededed;
+}

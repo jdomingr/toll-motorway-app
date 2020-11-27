@@ -20,6 +20,14 @@ html, body {
     width: 100vw;
 }
 
+input:focus {
+    outline: none;
+}
+
+label {
+    color: white;
+}
+
 .m-1 {
     margin: .5rem;
 }

@@ -29,7 +29,7 @@ export const List = () => {
 
 
     return (
-        <div className="list__container">
+        <div className="list__container animate__animated animate__fadeIn">
             { (users.isLoading) ? <h1>Loading...</h1> : 
             (<table>
                 <thead>

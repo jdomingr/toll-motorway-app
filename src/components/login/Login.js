@@ -35,13 +35,13 @@ export const Login = () => {
             <h3 className="login__title"> Login </h3>
             <form onSubmit={handleLogin} className="login__form p-4">
                 <div>
-                    <input className="form__input" type="text" 
+                    <input className="login__input" type="text" 
                         name="email" placeholder="Enter your Email"
                         onChange={ handleInputChange }
                         value={ dataLogin.email }/>
                 </div>
                 <div>
-                    <input className="form__input" type="password" name="password"
+                    <input className="login__input" type="password" name="password"
                         onChange={ handleInputChange } placeholder="Enter your pass"
                         value={dataLogin.password}/>
                 </div>

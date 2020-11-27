@@ -25,22 +25,23 @@ export const getUsersList = async () => {
 export const saveUser = async( user ) => {
     try {
         
-        const reqBody = new FormData();
-        reqBody.set('name', user.name);
-        reqBody.set('last_name', user.last_name);
-        reqBody.set('email', user.email);
-        reqBody.set('password', user.password);
-        reqBody.set('role', user.role);
+        const reqBody = {
+            name: user.name,
+            last_name: user.last_name,
+            email: user.email,
+            password: '123456',
+            role: user.role,
+        }
 
         const resp = await fetch(`${URL}/users`,{
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin' : '*', 
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials' : true,
                 'token': token
-             },
-             body: reqBody
+            },
+            body: JSON.stringify(reqBody)
 
         });
 
@@ -57,7 +58,7 @@ export const deleteUser = async( user ) => {
             method: 'DELETE',
             headers: {
                 'Access-Control-Allow-Origin' : '*', 
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials' : true,
                 'token': token
              },

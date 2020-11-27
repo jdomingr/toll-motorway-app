@@ -14,10 +14,18 @@
     height: 100%;
 }
 
+
 @media screen and (min-width: 768px){
     .dashboard__container-main {
         flex-direction: row;
     }
+}
+
+.dashboard__container-header {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
 }
 
 .dashboard__aside {
@@ -71,8 +79,6 @@
     }
 }
 
-
-
 nav ul li:hover {
     background-color: #1a2770;
 }
@@ -81,7 +87,6 @@ nav ul li a {
     display: block;
 }
 
-
 .nav__li{
     text-decoration: none;
     color: white;
@@ -89,18 +94,3 @@ nav ul li a {
 }
 
 
-
-
-.form__input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ededed;
-    border-radius: 4px;
-    font-weight: bolder;
-    color:  #8898aa;
-    box-shadow: 0px 1px 3px #ededed;
-}
-
-.form__modal {
-    
-}

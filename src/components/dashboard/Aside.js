@@ -32,7 +32,6 @@ export const Aside = () => {
             <nav>
                 <ul>
                     <li> 
-                        
                         <NavLink activeClassName="active" className="nav__li" to="/home">
                             <FontAwesomeIcon icon={ faHome } className="icon mr-1"/>
                              Info
@@ -40,6 +39,8 @@ export const Aside = () => {
                         </NavLink>
                       
                     </li>
+                    { user.role === 'ADMIN_ROLE' && 
+                    <>
                     <li> 
                         <NavLink activeClassName="active" className="nav__li" to="/users">
                             <FontAwesomeIcon icon={ faUsers } className="icon mr-1"/>
@@ -78,6 +79,8 @@ export const Aside = () => {
                             Vehicles
                         </NavLink>
                     </li>
+                    </>
+                    }
                     <li>
                        
                         <NavLink activeClassName="active" className="nav__li" to="pays" exact>

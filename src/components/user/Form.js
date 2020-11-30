@@ -15,41 +15,47 @@ export const Form = () => {
         .catch(err => console.log(err));
     }
 
+    const roles = [{id: 1, type: 'ADMIN_ROLE'}, { id: 2, type: 'USER_ROLE'}]
+
     return (
         <div className="form__container">
             <form className="form__add animate__animated animate__fadeIn">
-                <div className = "form__group">
+                <div className = "form__group m-2">
                 <label htmlFor="name">Name</label>
-                    <input className = "form__input m-2 p-2" 
+                    <input className = "form__input mt-1 p-2" 
                         type = "text" placeholder = "Name"
                         name = "name"
                         value = { data.name }
                         onChange = { handleInputChange } />
                 </div>
                 
-                <div className = "form__group">
+                <div className = "form__group m-2">
                     <label htmlFor="last_name">Last Name</label>
-                    <input className = "form__input m-2 p-2" type = "text"
+                    <input className = "form__input mt-1 p-2" type = "text"
                         placeholder = "Last name"
                         name = "last_name"
                         value = { data.last_name }
                         onChange = { handleInputChange } />
                 </div>
-                <div className = "form__group">
+                <div className = "form__group m-2">
                 <label htmlFor="email">Email</label>
-                <input className = "form__input m-2 p-2" type = "text"
+                <input className = "form__input mt-1 p-2" type = "text"
                     placeholder = "Email"
                     name = "email"
                     value={ data.email } 
                     onChange = { handleInputChange }/>
                 </div>
-                <div className = "form__group">
+                <div className = "form__group m-2">
                     <label htmlFor="role">Role</label>
-                    <input className = "form__input m-2 p-2" type = "text" 
+                    <select className = "form__input mt-1 p-2" type = "text" 
                         placeholder = "Role"
                         name = "role"
                         value = { data.role }
-                        onChange = { handleInputChange } />
+                        onChange = { handleInputChange } >
+                    { roles.map((role) => (
+                        <option key={ role.id } value={role.type}>{ role.type }</option>
+                    ))}
+                    </select>
                 </div>
                 
                 <div className="mt-2">

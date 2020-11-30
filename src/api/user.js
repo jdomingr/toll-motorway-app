@@ -2,9 +2,9 @@ import { getUserData } from "../helpers/actionOnLocalStorage";
 
 const URL =  'http://localhost:3000';
 
-const { token } = getUserData();
 
 export const getUsersList = async () => {
+    const { token } = getUserData();
     try{
 
         const resp = await fetch(`${URL}/users` ,{
@@ -23,6 +23,7 @@ export const getUsersList = async () => {
 }
 
 export const saveUser = async( user ) => {
+    const { token } = getUserData();
     try {
         
         const reqBody = {
@@ -53,6 +54,7 @@ export const saveUser = async( user ) => {
 }
 
 export const deleteUser = async( user ) => {
+    const { token } = getUserData();
     try {
         const resp = await fetch(`${URL}/users/${user._id}`,{
             method: 'DELETE',

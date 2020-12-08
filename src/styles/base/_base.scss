@@ -24,6 +24,10 @@ input:focus {
     outline: none;
 }
 
+button:focus {
+    outline: none;
+}
+
 label {
     color: white;
 }
@@ -134,3 +138,12 @@ nav ul li {
     margin-right: .5rem;
 }
 
+
+.circular-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.linear-loading {
+    width: 100%;
+}

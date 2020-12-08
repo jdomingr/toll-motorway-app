@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
 
     const initialState = {
         isLogged: false,
+        _id: null,
         name: null,
         last_name: null,
         email: null,
@@ -29,7 +30,7 @@ export const UserProvider = ({ children }) => {
         const userData = getUserData();
        
 
-        if( userData ) {
+        if( userData.token ) {
 
             if(isTokenExpired(userData.token)){
                 return initialState;

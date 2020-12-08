@@ -1,3 +1,4 @@
+
 import { getUserData } from "../helpers/actionOnLocalStorage";
 
 const URL =  'http://localhost:3000';
@@ -5,6 +6,8 @@ const URL =  'http://localhost:3000';
 
 export const getUsersList = async () => {
     const { token } = getUserData();
+
+
     try{
 
         const resp = await fetch(`${URL}/users` ,{
@@ -15,6 +18,9 @@ export const getUsersList = async () => {
                 'token': token
              }
         });
+
+       
+
         return resp.json();
 
     }catch(error){
@@ -53,10 +59,10 @@ export const saveUser = async( user ) => {
     }
 }
 
-export const deleteUser = async( user ) => {
+export const deleteUser = async( id ) => {
     const { token } = getUserData();
     try {
-        const resp = await fetch(`${URL}/users/${user._id}`,{
+        const resp = await fetch(`${URL}/users/${id}`,{
             method: 'DELETE',
             headers: {
                 'Access-Control-Allow-Origin' : '*', 

@@ -61,7 +61,7 @@ export const Form = () => {
                 <div className="mt-2">
                     <button className = "btn__add"
                         onClick={ handleSaveUser }>
-                        <FontAwesomeIcon icon = {faPlus} />
+                        <FontAwesomeIcon icon = {faPlus} className="mr-1"/>
                             Add User
                     </button>
                 </div>

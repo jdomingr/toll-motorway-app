@@ -2,6 +2,7 @@ import { types } from '../types/types';
 
 const initialState = {
     isLogged: false,
+    _id: null,
     name: null,
     last_name: null,
     email: null,

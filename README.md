@@ -4,7 +4,6 @@ This project is currently under development.
 
 The main goal of this project is to learn and to practice my react skills, building an App that consumes an API created by me.<br />
 The project consist in a Toll Motorway App where we will be able to managed car's entry/exit, financial reports, statistics, etc. <br />
-My focus is on React, so to make the app I will also use Bootstrap 4. <br /> 
 
 If you want to give me some advice i´ll be grateful.
 
